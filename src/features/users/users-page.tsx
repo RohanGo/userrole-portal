@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/features/auth/auth.context';
 import { AuthGuard } from '@/features/auth/auth.guard';
@@ -30,7 +29,7 @@ export function UsersPage() {
     page: 1,
     limit: 25,
     search: '',
-    status: '',
+    status: 'all',
     roleId: '',
     sortBy: 'name',
     sortDirection: 'asc'
@@ -43,7 +42,12 @@ export function UsersPage() {
   const loadUsers = async () => {
     setLoading(true);
     try {
-      const result = await usersService.getUsers(query);
+      // Convert 'all' to empty string for the API call
+      const apiQuery = {
+        ...query,
+        status: query.status === 'all' ? '' : query.status
+      };
+      const result = await usersService.getUsers(apiQuery);
       setUsers(result.users);
       setPagination(result.pagination);
     } catch (error) {
@@ -229,7 +233,7 @@ export function UsersPage() {
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All statuses</SelectItem>
+                <SelectItem value="all">All statuses</SelectItem>
                 {Object.entries(STATUS_LABELS).map(([value, label]) => (
                   <SelectItem key={value} value={value}>{label}</SelectItem>
                 ))}
