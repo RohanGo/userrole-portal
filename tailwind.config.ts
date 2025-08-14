@@ -20,6 +20,7 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Monochrome color system
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -61,10 +62,26 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Monochrome grays
+				gray: {
+					50: 'hsl(var(--gray-50))',
+					100: 'hsl(var(--gray-100))',
+					200: 'hsl(var(--gray-200))',
+					300: 'hsl(var(--gray-300))',
+					400: 'hsl(var(--gray-400))',
+					500: 'hsl(var(--gray-500))',
+					600: 'hsl(var(--gray-600))',
+					700: 'hsl(var(--gray-700))',
+					800: 'hsl(var(--gray-800))',
+					900: 'hsl(var(--gray-900))',
+					950: 'hsl(var(--gray-950))'
+				},
+				// Admin specific colors using monochrome
 				'admin-sidebar': 'hsl(var(--admin-sidebar))',
 				'admin-sidebar-foreground': 'hsl(var(--admin-sidebar-foreground))',
 				'admin-header': 'hsl(var(--admin-header))',
 				'admin-surface': 'hsl(var(--admin-surface))',
+				// Status colors using monochrome with slight tints
 				'status-active': 'hsl(var(--status-active))',
 				'status-inactive': 'hsl(var(--status-inactive))',
 				'status-pending': 'hsl(var(--status-pending))',
