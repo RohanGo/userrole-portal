@@ -156,7 +156,7 @@ export function RoleForm({ role, onSave, onCancel }: RoleFormProps) {
                   
                   {Object.values(ACTIONS).map(action => (
                     <div key={`${module.id}-${action}`} className="permission-cell border-r border-border">
-                      {module.actions.includes(action) ? (
+                      {module.actions.includes(action as keyof typeof ACTIONS) ? (
                         <Checkbox
                           checked={selectedPermissions[module.id]?.includes(action) || false}
                           onCheckedChange={(checked) => 
