@@ -1,10 +1,12 @@
 
 export const MODULES = {
-  USERS: 'users',
-  ROLES: 'roles',
-  REPORTS: 'reports',
-  BI_DASHBOARDS: 'bi_dashboards',
-  AUDIT: 'audit'
+  CORPORATE_WELLNESS: 'corporate_wellness_360',
+  REWARD_PROGRAM: 'reward_program_management',
+  REWARD_SHELF: 'reward_shelf',
+  REWARD_PARTNER: 'reward_partner',
+  USER_ROLE: 'user_role_management',
+  CONFIGURATION: 'configuration_portal',
+  SMART_ENGAGE: 'smart_engage'
 } as const;
 
 export const ACTIONS = {
@@ -28,34 +30,46 @@ export const SYSTEM_ROLES = {
 
 export const MODULE_DEFINITIONS = [
   {
-    id: MODULES.USERS,
-    name: 'User Management',
-    description: 'Manage users, profiles, and user settings',
+    id: MODULES.CORPORATE_WELLNESS,
+    name: 'Corporate Wellness 360',
+    description: 'Comprehensive wellness program management',
     actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
   },
   {
-    id: MODULES.ROLES,
-    name: 'Role Management',
+    id: MODULES.REWARD_PROGRAM,
+    name: 'Reward Program Management',
+    description: 'Create and manage employee reward programs',
+    actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
+  },
+  {
+    id: MODULES.REWARD_SHELF,
+    name: 'Reward Shelf',
+    description: 'Manage available rewards and catalog',
+    actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
+  },
+  {
+    id: MODULES.REWARD_PARTNER,
+    name: 'Reward Partner',
+    description: 'Manage reward partners and integrations',
+    actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
+  },
+  {
+    id: MODULES.USER_ROLE,
+    name: 'User Role Management',
     description: 'Create and manage user roles and permissions',
     actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
   },
   {
-    id: MODULES.REPORTS,
-    name: 'Reports',
-    description: 'Access and generate system reports',
+    id: MODULES.CONFIGURATION,
+    name: 'Configuration Portal',
+    description: 'System configuration and settings management',
     actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
   },
   {
-    id: MODULES.BI_DASHBOARDS,
-    name: 'BI Dashboards',
-    description: 'View and manage business intelligence dashboards',
+    id: MODULES.SMART_ENGAGE,
+    name: 'Smart Engage',
+    description: 'Employee engagement and communication tools',
     actions: [ACTIONS.VIEW, ACTIONS.CREATE, ACTIONS.EDIT, ACTIONS.DELETE]
-  },
-  {
-    id: MODULES.AUDIT,
-    name: 'Audit Logs',
-    description: 'View system audit trails and logs',
-    actions: [ACTIONS.VIEW]
   }
 ];
 
@@ -75,16 +89,16 @@ export const DEFAULT_ROLES = [
   {
     id: SYSTEM_ROLES.REPORTING_MANAGER,
     name: 'Reporting Manager',
-    description: 'Access to reports and BI dashboards only',
+    description: 'Access to reports and analytics only',
     isSystemRole: true,
     permissions: {
       modules: [
         {
-          id: MODULES.REPORTS,
+          id: MODULES.CORPORATE_WELLNESS,
           actions: [ACTIONS.VIEW]
         },
         {
-          id: MODULES.BI_DASHBOARDS,
+          id: MODULES.SMART_ENGAGE,
           actions: [ACTIONS.VIEW]
         }
       ]
